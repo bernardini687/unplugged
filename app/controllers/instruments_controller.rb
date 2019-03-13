@@ -1,12 +1,11 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_member!, only: %i[index show]
-  before_action :set_instrument, only: %i[show edit update]
+  before_action :set_instrument, only: %i[show edit update destroy]
 
   def index
     if params[:query].blank?
       @instruments = Instrument.all
     else
-      # Why the % around #{}?
       @instruments = Instrument.where('category LIKE ?', "%#{params[:query]}%")
       # @categories = Instrument.all.map { |i| i.category.capitalize }
     end
