@@ -1,1 +1,12 @@
-<h1>instruments#index</h1>
+<h1>Instruments</h1>
+
+<div>
+  <% @instruments.each do |i| %>
+    <h3><%= i.category %> | <%= i.price %></h3>
+    <p><small><%= i.address %></small></p>
+    <p><%= i.description %></p>
+    <p>
+      <%= link_to 'Details', instrument_path(i) %>
+    </p>
+  <% end %>
+</div>

@@ -43,6 +43,10 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  def destroy
+    @instrument.destroy
+  end
+
   private
 
   def set_instrument
