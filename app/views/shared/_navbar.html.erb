@@ -2,8 +2,8 @@
   <ul>
     <li><%= link_to :Unplugged, root_path %></li>
     <div class="nav-right">
-      <li><%= link_to 'Borrow an instrument', root_path %></li>
-      <li><%= link_to 'Offer an instrument', root_path %></li>
+      <li><%= link_to 'Borrow an instrument', instruments_path %></li>
+      <li><%= link_to 'Offer an instrument', new_instrument_path %></li>
       <%= render 'devise/menu/login_items' %>
       <%= render 'devise/menu/registration_items' %>
     </div>
