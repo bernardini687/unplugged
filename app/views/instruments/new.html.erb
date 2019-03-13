@@ -1,0 +1,29 @@
+<div class="form-wrapper">
+  <h1>About your instrument</h1>
+
+  <%= simple_form_for [@instrument] do |f| %>
+    <%= f.input :category,
+                collection: @categories,
+                include_blank: false %>
+    <%= f.input :address, as: :search,
+                placeholder: 'Where is your instrument?' %>
+    <%= f.input :price, label: 'Choose a price per day',
+                collection: @prices,
+                include_blank: false %>
+    <%= f.input :photo %>
+    <%# f.input :photo_cache, as: :hidden %>
+    <%= f.input :description, as: :text,
+                placeholder: "My #{@categories.sample.downcase} is #{@attributes.sample}!" %>
+
+    <%= f.submit 'Offer instrument' %>
+  <% end %>
+
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+  <script>
+    var placesAutocomplete = places({
+      appId: 'plR68GB1E2CW',
+      apiKey: '22b3ea475abdefff457f9bc54989d405',
+      container: document.getElementById('instrument_address')
+    });
+  </script>
+</div>
