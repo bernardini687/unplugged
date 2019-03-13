@@ -1,0 +1,8 @@
+<% if member_signed_in? %>
+  <li><%= link_to("#{current_member.email}", edit_member_registration_path) %></li>
+  <!-- Instead of *email* show the Member's name/username -->
+  <!-- This link will go to Member's showpage (profile) -->
+  <!-- Link to edit Member's registration will go there, with her Bookings and Instruments -->
+<% else %>
+  <li><%= link_to('Sign up', new_member_registration_path) %></li>
+<% end %>
