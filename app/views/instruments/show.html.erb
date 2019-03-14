@@ -1,1 +1,18 @@
-<h1>instruments#show</h1>
+<h1>
+  <%= @instrument.category %> |
+  <small>
+    <% if policy(@instrument).edit? %>
+      <%= link_to 'Edit', edit_instrument_path(@instrument) %>
+    <% end %>
+  </small>
+  <small>
+    <% if policy(@instrument).destroy? %>
+      <%= link_to 'Destroy', instrument_path(@instrument),
+                             method: :delete,
+                             data: { confirm: 'Sure?' } %>
+    <% end %>
+  </small>
+</h1>
+<h4><strong>Owner: </strong><%= @instrument.member.email %></h4>
+<p><small><strong>Address: </strong><%= @instrument.address %></small></p>
+<p><%= @instrument.description %></p>

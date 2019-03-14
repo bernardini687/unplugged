@@ -1,15 +1,15 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_member!, only: %i[index show]
-  before_action :set_instrument, only: %i[show edit update]
+  before_action :set_instrument, only: %i[show edit update destroy]
 
   def index
-    if params[:query].blank?
-      @instruments = Instrument.all
-    else
-      # Why the % around #{}?
-      @instruments = Instrument.where('category LIKE ?', "%#{params[:query]}%")
-      # @categories = Instrument.all.map { |i| i.category.capitalize }
-    end
+    @instruments = policy_scope(Instrument).order(created_at: :desc)
+    # if params[:query].blank?
+    #   @instruments = Instrument.all
+    # else
+    #   @instruments = Instrument.where('category LIKE ?', "%#{params[:query]}%")
+    # end
+    # @categories = Instrument.all.map { |i| i.category.capitalize }
   end
 
   def show; end
@@ -17,6 +17,8 @@ class InstrumentsController < ApplicationController
   def new
     @member = current_member
     @instrument = Instrument.new
+    authorize @instrument # Here?
+
     @categories = ['Keyboard', 'Guitar', 'Bass', 'Wind instrument', 'Brass instrument', 'Bowed instrument']
     @attributes = ['awesome', 'graceful', 'epic', 'good enough']
     @prices = (5..100).step(5).to_a
@@ -27,6 +29,7 @@ class InstrumentsController < ApplicationController
   def create
     @instrument = Instrument.new(instrument_params)
     @instrument.member = current_member
+    authorize @instrument # Or here?
 
     if @instrument.save
       redirect_to @instrument
@@ -47,10 +50,15 @@ class InstrumentsController < ApplicationController
     @instrument.destroy
   end
 
+  def pundit_user
+    current_member
+  end
+
   private
 
   def set_instrument
     @instrument = Instrument.find(params[:id])
+    authorize @instrument
   end
 
   def instrument_params

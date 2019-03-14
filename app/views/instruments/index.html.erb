@@ -2,11 +2,11 @@
 
 <div>
   <% @instruments.each do |i| %>
-    <h3><%= i.category %> | <%= i.price %></h3>
+    <h4>
+      <%= i.category %> |
+      <strong><%= i.price %><small><strong>eur</strong></small></strong> |
+      <small><%= link_to 'Details', instrument_path(i) %></small>
+    </h4>
     <p><small><%= i.address %></small></p>
-    <p><%= i.description %></p>
-    <p>
-      <%= link_to 'Details', instrument_path(i) %>
-    </p>
   <% end %>
 </div>
