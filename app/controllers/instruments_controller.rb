@@ -16,6 +16,8 @@ class InstrumentsController < ApplicationController
   def new
     @member = current_member
     @instrument = Instrument.new
+    authorize @instrument
+
     @categories = ['Keyboard', 'Guitar', 'Bass', 'Wind instrument', 'Brass instrument', 'Bowed instrument']
     @attributes = ['awesome', 'graceful', 'epic', 'good enough']
     @prices = (5..100).step(5).to_a
@@ -44,6 +46,10 @@ class InstrumentsController < ApplicationController
 
   def destroy
     @instrument.destroy
+  end
+
+  def pundit_user
+    current_member
   end
 
   private
