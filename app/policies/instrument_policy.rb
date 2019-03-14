@@ -5,15 +5,19 @@ class InstrumentPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
+  def create?
+    true
+  end
+
   def update?
     record.member == member
   end
 
   def destroy?
     record.member == member
-  end
-
-  def create?
-    true
   end
 end
