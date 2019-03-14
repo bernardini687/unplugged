@@ -17,7 +17,7 @@ class InstrumentsController < ApplicationController
   def new
     @member = current_member
     @instrument = Instrument.new
-    authorize @instrument
+    authorize @instrument # Here?
 
     @categories = ['Keyboard', 'Guitar', 'Bass', 'Wind instrument', 'Brass instrument', 'Bowed instrument']
     @attributes = ['awesome', 'graceful', 'epic', 'good enough']
@@ -29,7 +29,7 @@ class InstrumentsController < ApplicationController
   def create
     @instrument = Instrument.new(instrument_params)
     @instrument.member = current_member
-    authorize @instrument
+    authorize @instrument # Or here?
 
     if @instrument.save
       redirect_to @instrument
