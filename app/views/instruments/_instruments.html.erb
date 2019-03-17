@@ -1,8 +1,17 @@
-<% instruments.each do |i| %>
+<% instruments.each_with_index do |instrument, index| %>
   <h4>
-    <%= i.category %> |
-    <strong><%= i.price %><small><strong>eur</strong></small></strong> |
-    <small><%= link_to 'Details', instrument_path(i) %></small>
+    <%= instrument.category %> |
+    <strong><%= instrument.price %><small><strong>eur</strong></small></strong> |
+    <small>
+      <%= link_to 'More', instrument_path(instrument), data: { action: 'instruments#show', index: instrument.id } %>
+    </small>
   </h4>
-  <p><small><%= i.address %></small></p>
+  <div data-target='instruments.details'
+       data-index='<%= instrument.id %>'
+       class='hidden'>
+    <%= render 'instrument', instrument: instrument %>
+  </div>
+  <p><small><%= instrument.address %></small></p>
 <% end %>
+
+<!-- Now I can remove show.html.erb -->

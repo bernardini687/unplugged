@@ -1,16 +1,19 @@
-<h1>Avaiable instruments</h1>
+<div class="container-flex">
+  <div data-controller='instruments' class='left-col'>
+    <h2>Avaiable instruments</h2>
+    <div>
+      <%= render 'instruments', instruments: @instruments %>
+    </div>
+  </div>
 
-<div>
-  <%= render 'instruments', instruments: @instruments %>
-</div>
-
-<div data-controller='instruments'>
-  <h2>
-    <button data-action='instruments#reveal'>
-      My instruments
-    </button>
-  </h2>
-  <div data-target='instruments.list' class="hidden">
-    <%= render 'instruments', instruments: @member_instruments %>
+  <div data-controller='instruments' class='right-col'>
+    <h2>
+      <button data-action='instruments#reveal'>
+        My instruments
+      </button>
+    </h2>
+    <div data-target='instruments.list' class='hidden'>
+      <%= render 'instruments', instruments: @member_instruments %>
+    </div>
   </div>
 </div>
