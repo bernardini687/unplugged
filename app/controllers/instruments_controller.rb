@@ -3,12 +3,12 @@ class InstrumentsController < ApplicationController
   before_action :set_instrument, only: %i[show edit update destroy]
 
   def index
-    @instruments = policy_scope(Instrument).order(created_at: :desc)
-    # if params[:query].blank?
-    #   @instruments = Instrument.all
-    # else
-    #   @instruments = Instrument.where('category LIKE ?', "%#{params[:query]}%")
-    # end
+    @instruments = policy_scope(Instrument).order(created_at: :desc).reject do |i|
+      i.member_id == current_member.id
+    end
+    @member_instruments = policy_scope(Instrument).order(created_at: :desc).select do |i|
+      i.member_id == current_member.id
+    end
     # @categories = Instrument.all.map { |i| i.category.capitalize }
   end
 
