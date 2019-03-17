@@ -1,3 +1,14 @@
+.container-flex {
+  margin-top: 3rem;
+  display: flex;
+  .left-col {
+    flex: 0 1 62%;
+  }
+  .right-col {
+    flex: 1 1 auto;
+  }
+}
+
 .hidden {
   display: none;
 }
