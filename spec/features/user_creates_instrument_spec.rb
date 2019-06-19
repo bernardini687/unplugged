@@ -10,6 +10,6 @@ feature 'User creates instrument' do
     select 'Guitar', from: 'Category'
     click_on 'Submit'
 
-    expect(page).to have_css 'h3', text: 'Fender Stratocaster'
+    expect(page).to have_css '.instrument h3', text: 'Fender Stratocaster'
   end
 end
