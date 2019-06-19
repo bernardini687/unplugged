@@ -6,5 +6,6 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
+    @categories = Instrument.categories
   end
 end
