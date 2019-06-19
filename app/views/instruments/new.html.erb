@@ -1,0 +1,7 @@
+<%= simple_form_for @instrument do |f| %>
+  <%= f.input :brand %>
+  <%= f.input :model %>
+  <%= f.input :category, collection: @categories, include_blank: false %>
+
+  <%= f.submit %>
+<% end %>
