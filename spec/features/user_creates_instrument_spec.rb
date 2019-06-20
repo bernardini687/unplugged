@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User creates instrument' do
   scenario 'successfully' do
-    visit root_path
+    sign_in
 
     click_on 'Add your instrument'
 
