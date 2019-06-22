@@ -10,4 +10,8 @@ class Instrument < ApplicationRecord
      'DJ equipment',
      'Studio equipment'].sort
   end
+
+  def name
+    "#{brand} #{model}"
+  end
 end
