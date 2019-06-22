@@ -7,6 +7,6 @@ feature 'User updates instrument' do
     expect(page).to have_css '.instruments h4', text: 'Fender Telecaster'
 
     update_instrument(model: 'Stratocaster')
-    expect(page).to have_css '.instruments h4', text: 'Fender Stratocaster'
+    expect(page).to have_css 'h1', text: 'Fender Stratocaster'
   end
 end
