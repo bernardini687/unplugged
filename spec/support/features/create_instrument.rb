@@ -12,7 +12,7 @@ module Features
   end
 
   def update_instrument(*form)
-    click_on 'Edit this instrument'
+    click_on 'Edit'
     fill_out_instrument(*form)
     click_on 'Save changes'
   end
