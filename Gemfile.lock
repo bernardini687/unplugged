@@ -63,6 +63,7 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     devise (4.6.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -227,6 +228,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   capybara (~> 2.7.1)
+  database_cleaner
   devise
   dotenv-rails
   font-awesome-sass (~> 5.6.1)
