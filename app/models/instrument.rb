@@ -18,6 +18,8 @@ class Instrument < ApplicationRecord
   end
 
   def display_price
+    return if price.nil?
+
     '€ %.2f' % price
   end
 end
