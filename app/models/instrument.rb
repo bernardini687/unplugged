@@ -2,13 +2,15 @@ class Instrument < ApplicationRecord
   belongs_to :user
 
   def self.categories
-    ['Guitars',
-     'Basses',
-     'Keyboards',
-     'Wind instruments',
-     'Stringed instruments',
-     'DJ equipment',
-     'Studio equipment'].sort
+    [
+      'Basses',
+      'DJ equipment',
+      'Guitars',
+      'Keyboards',
+      'Stringed instruments',
+      'Studio equipment',
+      'Wind instruments'
+    ]
   end
 
   def name
