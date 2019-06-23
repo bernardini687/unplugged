@@ -1,1 +1,13 @@
 <h1><%= @instrument.name %></h1>
+<table>
+	<tr>
+		<th>Category</th>
+		<th>Price per day</th>
+		<th>Owner</th>
+	</tr>
+	<tr>
+		<td><%= @instrument.category %></td>
+		<td><%= @instrument.display_price %></td>
+		<td><%= @instrument.user.email %></td>
+	</tr>
+</table>

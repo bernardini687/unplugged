@@ -16,4 +16,8 @@ class Instrument < ApplicationRecord
   def name
     "#{brand} #{model}"
   end
+
+  def display_price
+    '€ %.2f' % price
+  end
 end

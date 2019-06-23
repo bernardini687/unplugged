@@ -1,5 +1,5 @@
 class InstrumentsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_instrument, only: %i[show edit update destroy]
   before_action :set_categories, only: %i[new edit]
 
