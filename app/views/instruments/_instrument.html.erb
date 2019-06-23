@@ -2,8 +2,6 @@
   <h4>
     <%= instrument.name %>
     <%= link_to 'Show', instrument %>
-    <% if instrument.user == current_user %>
-    	<%= link_to 'Edit', edit_instrument_path(instrument) %>
-    <% end %>
+    <%= render 'shared/instrument_links', instrument: instrument %>
   </h4>
 </div>
