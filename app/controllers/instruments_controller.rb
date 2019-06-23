@@ -33,6 +33,11 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  def destroy
+    @instrument.destroy
+    redirect_to root_url
+  end
+
   private
 
   def set_instrument
